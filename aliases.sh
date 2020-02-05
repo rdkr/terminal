@@ -16,5 +16,7 @@ function update {
   antibody update
   brew cleanup
   brew upgrade
+  brew cask upgrade
   brew doctor
+  brew cask doctor
 }
