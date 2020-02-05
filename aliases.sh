@@ -9,5 +9,5 @@ function today {
 }
 
 function yday {
- tail $HOME/today.log
+  cat $HOME/today.log | grep $(tail $HOME/today.log -n 1 | cut -c 1-10) | cut -c 12-
 }
