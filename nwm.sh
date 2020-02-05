@@ -31,3 +31,5 @@ function jump-shared {
     gcloud compute ssh vpc-shared-services-jumpbox -- -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -o StrictHostKeyChecking=no \
         -L 2222:$RUNNER_IP:22
 }
+
+alias k8sadmin='kubectl create clusterrolebinding cluster-admin-binding-$(whoami) --clusterrole=cluster-admin --user=$(gcloud config get-value account)'
