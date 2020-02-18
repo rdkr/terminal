@@ -20,3 +20,7 @@ function update {
   brew doctor
   brew cask doctor
 }
+
+function pw () {
+	LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?\[\]\(\)" < /dev/urandom | head -c "${1}" | pbcopy
+}
