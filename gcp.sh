@@ -66,4 +66,15 @@ function gplist {
 }
 compctl -K gplist gpset gpdel
 
-alias projects='gcloud projects list --format="table[no-heading](name, projectId)" | tee ~/.gcp-projects'
+function gcpui-update {
+    gcloud projects list --format 'value(name,project_id)' | column -t | tee ~/.gcp-projects
+}
+
+function gcpui {
+    base="https://console.cloud.google.com"
+    project_input=$(fzf < ~/.gcp-projects | awk '{print $2}')
+    project="?project=${project_input}"
+    service=$(fzf < ~/.terminal/gcp-services.txt | awk '{print $NF}')
+    echo "${base}${service}${project}"
+    open "${base}${service}${project}"
+}

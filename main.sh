@@ -41,3 +41,4 @@ if [ "${HOME}/.iterm2_shell_integration.zsh" ]; then source "${HOME}/.iterm2_she
 
 antibody bundle zsh-users/zsh-completions
 antibody bundle zsh-users/zsh-autosuggestions
+antibody bundle zsh-users/zsh-syntax-highlighting
