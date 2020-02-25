@@ -1,0 +1,10 @@
+[user]
+	email = neel@rdkr.uk
+	name = Neel Radhakrishnan
+[core]
+	editor = code --wait
+	excludesfile = ~/.terminal/config/git/gitignore
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE

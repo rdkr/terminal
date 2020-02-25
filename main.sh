@@ -1,4 +1,5 @@
-export ZSH="/Users/neel.radhakrishnan/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+export XDG_CONFIG_HOME="$HOME/.terminal/config"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
