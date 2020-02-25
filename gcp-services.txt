@@ -43,30 +43,30 @@ k8s gke storage                               /kubernetes/storage
 k8s gke object                                /kubernetes/object/browser
 functions                                     /functions
 run                                           /run
-bigtableprojectproject bigtable               /bigtable
+bigtable                                      /bigtable
 datastore entities                            /datastore/entities
 datastore dashboard                           /datastore/stats
 datastore indexes                             /datastore/indexes
 datastore admin                               /datastore/settings
 firestore data                                /firestore/data
 firestore indexes                             /firestore/indexes/composite
-filestoreprojectproject filestore             /filestore
-storage browser                               /storage/browser
-storage transfer                              /storage/transfer
-storage transfer                              /storage/transfers/on-premises
-storage transfer                              /storage/transferappliance
-storage settings                              /storage/settings
-sqlprojectproject sql                         /sql
-spannerprojectproject spanner                 /spanner
-memorystoreprojectproject memorystore         /memorystore
-networking vpc                                /networking/networks/list
-networking external                           /networking/addresses/list
-networking firewall                           /networking/firewalls/list
-networking routes                             /networking/routes/list
-networking peering                            /networking/peering/list
-networking shared                             /networking/xpn
-networking connectors                         /networking/connectors
-networking packet                             /networking/packetmirroring
+filestore                                     /filestore
+gcs browser                                   /storage/browser
+gcs transfer                                  /storage/transfer
+gcs transfer                                  /storage/transfers/on-premises
+gcs transfer                                  /storage/transferappliance
+gcs settings                                  /storage/settings
+cloudsql                                      /sql
+spanner                                       /spanner
+memorystore                                   /memorystore
+vpc dashboard                                 /networking/networks/list
+vpc external ips addresses                    /networking/addresses/list
+vpc firewall                                  /networking/firewalls/list
+vpc routes                                    /networking/routes/list
+vpc peering                                   /networking/peering/list
+vpc shared                                    /networking/xpn
+vpc connectors                                /networking/connectors
+vpc packet                                    /networking/packetmirroring
 net-services lbs                              /net-services/loadbalancing/list
 net-services dns                              /net-services/dns
 net-services cdn                              /net-services/cdn/list
@@ -75,26 +75,26 @@ net-services director                         /net-services/trafficdirector/serv
 hybrid vpn                                    /hybrid/vpn/list
 hybrid interconnect                           /hybrid/interconnects/list
 hybrid cloud                                  /hybrid/routers/list
-net-tierprojectproject network                /net-tier
-net-security cloud                            /net-security/securitypolicies/list
-net-security ssl                              /net-security/sslpolicies/list
+net-tier                                      /net-tier
+net-security cloud armou                      /net-security/securitypolicies/list
+net-security ssl policies                     /net-security/sslpolicies/list
 net-intelligence network                      /net-intelligence/topology
 net-intelligence connectivity                 /net-intelligence/connectivity
 monitoringprojectproject monitoring           /monitoring
-monitoring dashboards                         /monitoring/dashboards
-monitoring metrics                            /monitoring/metrics-explorer
-monitoring alerting                           /monitoring/alerting
-monitoring uptime                             /monitoring/uptime
-monitoring groups                             /monitoring/groups
-monitoring settings                           /monitoring/settings
-debugprojectproject debug                     /debug
-traces overview                               /traces/overview
-traces trace                                  /traces/traces
-traces analysis                               /traces/tasks
-logsprojectproject logs                       /logs
-logs logs-based                               /logs/metrics
-logs logs                                     /logs/exports
-logs resource                                 /logs/usage
+stackdriver dashboards                        /monitoring/dashboards
+stackdriver metrics                           /monitoring/metrics-explorer
+stackdriver alerting                          /monitoring/alerting
+stackdriver uptime                            /monitoring/uptime
+stackdriver groups                            /monitoring/groups
+stackdriver settings                          /monitoring/settings
+stackdriver debug                             /debug
+stackdriver traces overview                   /traces/overview
+stackdriver traces trace                      /traces/traces
+stackdriver traces analysis                   /traces/tasks
+stackdriver logs                              /logs
+stackdriver logs based metrics                /logs/metrics
+stackdriver logs exports                      /logs/exports
+stackdriver logs resource                     /logs/usage
 errorsprojectproject error                    /errors
 profilerprojectproject profiler               /profiler
 cloud-build dashboard                         /cloud-build/dashboard
