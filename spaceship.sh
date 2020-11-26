@@ -10,6 +10,7 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep      # Line break
   battery       # Battery level and status
   vi_mode       # Vi-mode indicator
+  golang        # go
   kubectl       # k8s
   aws           # aws
   jobs          # Background jobs indicator
