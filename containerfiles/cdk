@@ -1,0 +1,13 @@
+FROM archlinux
+
+RUN pacman -Syu --noconfirm \
+        git \
+        npm \
+        python-pip
+
+RUN npm install -g aws-cdk
+
+RUN mkdir /aws
+WORKDIR /aws
+
+ENTRYPOINT ["cdk"]
