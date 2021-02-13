@@ -1,5 +1,4 @@
-alias docker='podman'
-
+alias gcat="$(which cat)"
 alias cat='bat'
 
 alias ls='lsd'
@@ -20,11 +19,12 @@ alias kd='kubectl --context=k8s-agent-dsm'
 
 alias myip="curl -s http://checkip.amazonaws.com/"
 
-function today {
-  echo "$(date +'%Y-%m-%d %H:%M') $@" >> $HOME/today.log
+function 2d {
+  read
+  echo "$(date +'%Y-%m-%d %H:%M') ${REPLY}" >> $HOME/today.log
 }
 
-function yday {
+function yd {
   cat $HOME/today.log | grep $(tail $HOME/today.log -n 1 | cut -c 1-10) | cut -c 12-
 }
 
