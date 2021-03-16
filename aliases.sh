@@ -32,12 +32,7 @@ function pw () {
 	LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?\[\]\(\)" < /dev/urandom | head -c "${1:-64}"
 }
 
-function secrets-aws {
-  eval $(op signin my)
-  eval $(op get item 4toguey34zgtld3kxkneytiyi4 --fields notes)
-}
-
-function secrets-hermes {
-  eval $(op signin my)
-  eval $(op get item ehcdhcrzjbe35ejokjokclu56y --fields notes)
+function secret {
+  eval $(op signin --session my)
+  eval $(op get item env-$1 --fields notes)
 }
