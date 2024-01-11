@@ -56,8 +56,9 @@ install stern
 
 ### kde
 
+to fix start menu: https://www.reddit.com/r/Kubuntu/comments/r9dx60/comment/hncqrr2/
+
 ```
 emulate sh -c 'source /etc/profile' into /etc/zsh/zprofile
 ```
 
-https://www.reddit.com/r/Kubuntu/comments/r9dx60/comment/hncqrr2/
