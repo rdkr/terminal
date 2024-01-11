@@ -1,30 +1,43 @@
 [user]
 	name = Neel Radhakrishnan
 	email = neel.radhakrishnan@five.ai
-[includeIf "gitdir:~/athena/"]
-  path = ~/athena/.gitconfig
-[includeIf "gitdir:~/rdkr/"]
-  path = ~/rdkr/.gitconfig
+
+[includeIf "gitdir:/home/neel/athena/"]
+  path = /home/neel/athena/.gitconfig
+
+[includeIf "gitdir:/home/neel/rdkr/"]
+  path = /home/neel/rdkr/.gitconfig
+
 [core]
-	excludesfile = ~/rdkr/terminal/config/git/gitignore
+	excludesfile = /home/neel/rdkr/terminal/config/git/gitignore
+
 [diff]
     tool = meld
+
 [difftool]
     prompt = false
+
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
+
 [rebase]
   abbreviateCommands
+
 [pull]
 	rebase = true
+
 [init]
 	defaultBranch = main
+
 [difftool]
 	prompt = false
+
 [lfs]
 	storage = /home/neel/.lfs
+
 [credential]
 	helper = cache --timeout=86400
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
