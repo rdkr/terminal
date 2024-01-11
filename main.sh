@@ -20,7 +20,7 @@ PATH="${GOPATH//://bin:}/bin:$PATH"
 # rust path
 PATH="$HOME/.cargo/bin:$PATH"
 
-#### load local imgs
+# load local imgs
 PATH="$TERMINAL_DIR/imgs:$PATH"
 
 # tfenv path

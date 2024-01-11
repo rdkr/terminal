@@ -1,10 +1,8 @@
 [user]
 	name = Neel Radhakrishnan
-	email = neel@rdkr.uk
+	email = neel.radhakrishnan@five.ai
 [core]
-	editor = code --wait
 	excludesfile = ~/rdkr/terminal/config/git/gitignore
-	askpass = /usr/bin/ksshaskpass
 [diff]
     tool = meld
 [difftool]
@@ -19,5 +17,7 @@
 	defaultBranch = main
 [difftool]
 	prompt = false
-[includeIf "gitdir:~/five/"]
+[includeIf "gitdir:~/"]
 	path = ~/rdkr/terminal/config/git/config-five
+[lfs]
+	storage = /home/neel/.lfs

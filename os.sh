@@ -9,8 +9,6 @@ if [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
   alias lla='ls -la'
   alias lt='ls --tree'
 
-  export GIT_ASKPASS=`which ksshaskpass`
-
   function update {
     sudo apt update && sudo apt upgrade && sudo apt autoremove
     antibody bundle < $TERMINAL_DIR/antibody_plugins.txt > $TERMINAL_DIR/antibody_plugins.sh
@@ -26,8 +24,6 @@ else
   alias la='ls -a'
   alias lla='ls -la'
   alias lt='ls --tree'
-
-  export GIT_ASKPASS=`which ksshaskpass`
 
   function update {
     yay

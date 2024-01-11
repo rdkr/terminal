@@ -3,8 +3,8 @@ alias zshrc='code $TERMINAL_DIR'
 
 alias tf='terraform'
 
-alias kx='kubectx'
-alias kn='kubens'
+alias kx='kubectl ctx'
+alias kn='kubectl ns'
 
 alias myip="curl -s http://checkip.amazonaws.com/"
 
