@@ -1,3 +1,5 @@
+alias docker='podman'
+
 alias cat='bat'
 
 alias ls='lsd'

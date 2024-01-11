@@ -38,11 +38,6 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     source $TERMINAL_DIR/aliases-linux.sh
     PATH="$PATH:$TERMINAL_DIR/imgs"
 
-
-    # PATH="$PATH:/snap/bin"
-    # PATH="$PATH:$HOME/.local/bin/"
-    # PATH="$PATH:$HOME/.cargo/bin/"
-
     export GIT_ASKPASS=`which ksshaskpass`
 
 fi
