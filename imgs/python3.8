@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+podman run \
+    $([[ -t 1 ]] && echo -it) \
+    -v /home:/home \ # hmm
+    --rm \
+    --entrypoint python \
+    --name python \
+    python:3.8 "$@"

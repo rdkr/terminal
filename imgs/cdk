@@ -1,10 +1,10 @@
 #!/bin/zsh
 podman run \
-  --rm \
+  --rm -it \
   $([[ ! -z "$AWS_PROFILE" ]] && echo "-e AWS_PROFILE=$AWS_PROFILE") \
   $([[ ! -z "$AWS_ACCESS_KEY_ID" ]] && echo "-e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID") \
   $([[ ! -z "$AWS_SECRET_ACCESS_KEY" ]] && echo "-e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY") \
   $([[ ! -z "$AWS_DEFAULT_REGION" ]] && echo "-e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION") \
-  -v "$HOME/.aws:/root/.aws:rw" \
+  -v "$HOME/.aws:/root/.aws:ro" \
   -v "$(pwd):/aws:rw" \
-  amazon/aws-cli $@
+  cdk $@
