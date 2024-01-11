@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.terminal/config"
 DISABLE_AUTO_UPDATE=true
 ZSH="$(antibody path robbyrussell/oh-my-zsh)"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git kubectl helm gcloud iterm2 fzf gcloud)
+plugins=(z git kubectl helm gcloud iterm2 fzf gcloud)
 
 #### set paths
 # homebrew sbin
