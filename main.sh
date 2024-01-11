@@ -2,7 +2,6 @@
 # env vars
 ##############################################################################
 
-# export XDG_CONFIG_HOME="$TERMINAL_DIR/config"
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 export GIT_CONFIG_GLOBAL=$TERMINAL_DIR/config/git/config
