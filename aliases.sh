@@ -1,5 +1,6 @@
 alias reload='source ~/.zshrc'
 alias zshrc='code $TERMINAL_DIR'
+
 alias tf='terraform'
 
 alias kx='kubectx'

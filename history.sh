@@ -1,5 +1,8 @@
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
 # both must be set to enable history
-export SAVEHIST=1000000
+export SAVEHIST=1000000000
 export HISTFILE=~/.zsh_history
 
 # options

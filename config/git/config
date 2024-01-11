@@ -3,18 +3,21 @@
 	email = neel@rdkr.uk
 [core]
 	editor = code --wait
-	excludesfile = ~/code/terminal/config/git/gitignore
+	excludesfile = ~/rdkr/terminal/config/git/gitignore
+	askpass = /usr/bin/ksshaskpass
 [diff]
-    tool = default-difftool
-[difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
 [rebase]
   abbreviateCommands
-#[credential]
-#	helper = osxkeychain
-[includeIf "gitdir:~/code/windermere/"]
-	path = ~/code/rdkr/terminal/config/git/config-engie
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
+[difftool]
+	prompt = false
+[includeIf "gitdir:~/five/"]
+	path = ~/rdkr/terminal/config/git/config-five

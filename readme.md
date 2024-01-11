@@ -15,7 +15,7 @@ chsh -s $(which zsh)
 sudo add-apt-repository ppa:longsleep/golang-backports
 sudo add-apt-repository ppa:git-core/ppa                   
 sudo apt update
-sudo apt install build-essential golang-go zsh fzf git bat libsecret-1-0 libsecret-1-dev
+sudo apt install build-essential golang-go zsh fzf git bat libsecret-1-0 libsecret-1-dev silversearcher-ag
 cd /usr/share/doc/git/contrib/credential/libsecret
 sudo make
 cd -

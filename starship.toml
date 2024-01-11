@@ -1,83 +1,12 @@
-# format = """$character"""
-# right_format = """$all"""
-
-format = """
-$time\
-$username\
-$hostname\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$cobol\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
-$custom\
-$cmd_duration\
-$jobs\
-$battery\
-$line_break\
-$status\
-$shell\
-$character"""
-
+format = "$time$all"
 add_newline = false
-
-[character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
 
 [time]
 format = "[$time]($style) "
 disabled = false
 
 [cmd_duration]
-min_time = 2000
+min_time = 500
 
 [kubernetes]
 disabled = false
