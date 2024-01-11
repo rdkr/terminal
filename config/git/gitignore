@@ -1,3 +1,7 @@
+.idea/*
+*/venv/*
+venv/*
+
 # Created by https://www.gitignore.io/api/go,rust,macos,python,intellij,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=go,rust,macos,python,intellij,visualstudiocode
 

@@ -22,3 +22,10 @@ function update {
 function pw () {
 	LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?\[\]\(\)" < /dev/urandom | head -c "${1}" | pbcopy
 }
+
+function gen_gnupaths {
+    for p in $(find -L /usr/local/opt -type d -name "*gnubin")
+    do
+        echo PATH="$p:\$PATH"
+    done
+}
