@@ -5,14 +5,6 @@ repositories:
   certFile: ""
   insecure_skip_tls_verify: false
   keyFile: ""
-  name: stable
-  password: ""
-  url: https://kubernetes-charts.storage.googleapis.com
-  username: ""
-- caFile: ""
-  certFile: ""
-  insecure_skip_tls_verify: false
-  keyFile: ""
   name: concourse
   password: ""
   url: https://concourse-charts.storage.googleapis.com/
@@ -32,4 +24,12 @@ repositories:
   name: traefik
   password: ""
   url: https://helm.traefik.io/traefik
+  username: ""
+- caFile: ""
+  certFile: ""
+  insecure_skip_tls_verify: false
+  keyFile: ""
+  name: stable
+  password: ""
+  url: https://charts.helm.sh/stable
   username: ""
