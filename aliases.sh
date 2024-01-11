@@ -12,7 +12,7 @@ function yday {
 }
 
 function update {
-  antibody bundle < ~/.terminal/plugins.txt > ~/.terminal/plugins.sh
+  antibody bundle < ~/.terminal/plugins.txt
   antibody update
   brew cleanup
   brew upgrade
