@@ -29,3 +29,13 @@ function gen_gnupaths {
         echo PATH="$p:\$PATH"
     done
 }
+
+function secrets-aws {
+  eval $(op signin my)
+  eval $(op get item 4toguey34zgtld3kxkneytiyi4 | jq -r .details.notesPlain)
+}
+
+function secrets-hermes {
+  eval $(op signin my)
+  eval $(op get item ehcdhcrzjbe35ejokjokclu56y | jq -r .details.notesPlain)
+}
