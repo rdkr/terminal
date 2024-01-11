@@ -11,7 +11,13 @@ if [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
 
   function update {
     sudo apt update && sudo apt upgrade && sudo apt autoremove
-    antibody bundle < $TERMINAL_DIR/antibody_plugins.txt > $TERMINAL_DIR/antibody_plugins.sh
+    sudo snap refresh
+    antidote update
+    cd ~/.pyenv && git pull
+    cd ~/.tfenv && git pull
+    cargo install starship --locked
+    cargo install kubie --locked
+    cd
   }
 
 else

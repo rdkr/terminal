@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+backstage_repo="/home/neel/five/backstage"
+
+$CONTAINER_TOOL run \
+  --rm \
+  -it \
+  -u $(id -u ${USER}):$(id -g ${USER}) \
+  --net host \
+  -w /backstage/$(pwd | sed s#$backstage_repo/##g) \
+  -v "$backstage_repo:/backstage:rw" \
+  --env POSTGRES_HOST \
+  --env POSTGRES_USER \
+  --env GITLAB_TOKEN \
+  --env AUTH_OKTA_CLIENT_SECRET \
+  node:lts yarn $@

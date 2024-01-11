@@ -1,6 +1,10 @@
 [user]
 	name = Neel Radhakrishnan
 	email = neel.radhakrishnan@five.ai
+[includeIf "gitdir:~/athena/"]
+  path = ~/athena/.gitconfig
+[includeIf "gitdir:~/rdkr/"]
+  path = ~/rdkr/.gitconfig
 [core]
 	excludesfile = ~/rdkr/terminal/config/git/gitignore
 [diff]
@@ -17,7 +21,12 @@
 	defaultBranch = main
 [difftool]
 	prompt = false
-[includeIf "gitdir:~/"]
-	path = ~/rdkr/terminal/config/git/config-five
 [lfs]
 	storage = /home/neel/.lfs
+[credential]
+	helper = cache --timeout=86400
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -1,6 +1,0 @@
-#!/bin/zsh
-$CONTAINER_TOOL run \
-  --rm -i \
-  --entrypoint /usr/local/bin/aws_completer \
-  -e COMP_LINE -e COMP_POINT \
-  amazon/aws-cli $@

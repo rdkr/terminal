@@ -3,10 +3,18 @@ add_newline = false
 
 [time]
 format = "[$time]($style) "
+style = "bold blue"
 disabled = false
 
 [cmd_duration]
 min_time = 500
+
+[aws]
+symbol = ''
+
+[python]
+symbol = ''
+style = "bold green"
 
 [kubernetes]
 disabled = true
