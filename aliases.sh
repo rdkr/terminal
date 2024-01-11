@@ -32,10 +32,10 @@ function gen_gnupaths {
 
 function secrets-aws {
   eval $(op signin my)
-  eval $(op get item 4toguey34zgtld3kxkneytiyi4 | jq -r .details.notesPlain)
+  eval $(op get item 4toguey34zgtld3kxkneytiyi4 --fields notes)
 }
 
 function secrets-hermes {
   eval $(op signin my)
-  eval $(op get item ehcdhcrzjbe35ejokjokclu56y | jq -r .details.notesPlain)
+  eval $(op get item ehcdhcrzjbe35ejokjokclu56y --fields notes)
 }
