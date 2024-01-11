@@ -42,6 +42,9 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
 fi
 
+#### load omz
+source $ZSH/oh-my-zsh.sh
+
 #### load terminal custom configs
 source $TERMINAL_DIR/history.sh
 source $TERMINAL_DIR/aliases.sh
