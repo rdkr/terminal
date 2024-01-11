@@ -18,6 +18,8 @@ alias kn='kubens'
 alias ka='kubectl --context=k8s-agent-asm'
 alias kd='kubectl --context=k8s-agent-dsm'
 
+alias myip="curl -s http://checkip.amazonaws.com/"
+
 function today {
   echo "$(date +'%Y-%m-%d %H:%M') $@" >> $HOME/today.log
 }
