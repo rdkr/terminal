@@ -12,6 +12,9 @@
   abbreviateCommands
 #[credential]
 #	helper = osxkeychain
-
 [includeIf "gitdir:~/code/windermere/"]
 	path = ~/code/rdkr/terminal/config/git/config-engie
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
