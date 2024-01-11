@@ -1,0 +1,8 @@
+#!/bin/zsh
+mkdir -p ~/.ssh/gcloud ~/.config/gcloud
+podman run \
+  --rm -it \
+  -v ~/.config/gcloud:/root/.config/gcloud \
+  -v ~/.ssh/gcloud:/root/.ssh \
+  -v $(pwd):/gcloud \
+  gcr.io/google.com/cloudsdktool/cloud-sdk gcloud $@
