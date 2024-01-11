@@ -12,13 +12,11 @@ function yday {
 }
 
 function update {
-  upgrade_oh_my_zsh
+  antibody bundle < ~/.terminal/plugins.txt > ~/.terminal/plugins.sh
   antibody update
   brew cleanup
   brew upgrade
   brew cask upgrade
-  brew doctor
-  brew cask doctor
 }
 
 function pw () {

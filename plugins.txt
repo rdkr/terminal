@@ -1,0 +1,4 @@
+robbyrussell/oh-my-zsh
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
