@@ -1,6 +1,6 @@
 alias runner='ssh localhost -i ~/.ssh/google_compute_engine -p 2222 -o StrictHostKeyChecking=no'
 alias reload='source ~/.zshrc'
-alias zshrc='code ~/.terminal/'
+alias zshrc='code $TERMINAL_DIR'
 alias tf='terraform'
 
 function today {
@@ -12,7 +12,7 @@ function yday {
 }
 
 function update {
-  antibody bundle < ~/.terminal/plugins.txt
+  antibody bundle < $TERMINAL_DIR/plugins.txt
   antibody update
   brew cleanup
   brew upgrade

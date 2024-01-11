@@ -10,5 +10,5 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [rebase]
   abbreviateCommands
-[credential]
-	helper = osxkeychain
+#[credential]
+#	helper = osxkeychain
