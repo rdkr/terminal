@@ -1,33 +1,31 @@
-alias runner='ssh localhost -i ~/.ssh/google_compute_engine -p 2222 -o StrictHostKeyChecking=no'
+alias cat='bat'
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 alias reload='source ~/.zshrc'
 alias zshrc='code $TERMINAL_DIR'
 alias tf='terraform'
 
+alias kx='kubectx'
+alias kn='kubens'
+
+alias ka='kubectl --context=k8s-agent-asm'
+alias kd='kubectl --context=k8s-agent-dsm'
+
 function today {
-  echo "$(date +'%Y-%m-%d %H:%m') $@" >> $HOME/today.log
+  echo "$(date +'%Y-%m-%d %H:%M') $@" >> $HOME/today.log
 }
 
 function yday {
   cat $HOME/today.log | grep $(tail $HOME/today.log -n 1 | cut -c 1-10) | cut -c 12-
 }
 
-function update {
-  antibody bundle < $TERMINAL_DIR/plugins.txt
-  antibody update
-  brew cleanup
-  brew upgrade
-  brew cask upgrade
-}
-
 function pw () {
-	LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?\[\]\(\)" < /dev/urandom | head -c "${1}" | pbcopy
-}
-
-function gen_gnupaths {
-    for p in $(find -L /usr/local/opt -type d -name "*gnubin")
-    do
-        echo PATH="$p:\$PATH"
-    done
+	LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?\[\]\(\)" < /dev/urandom | head -c "${1:-64}"
 }
 
 function secrets-aws {

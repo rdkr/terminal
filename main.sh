@@ -8,7 +8,7 @@ PATH="${GOPATH//://bin:}/bin:$PATH"
 DISABLE_AUTO_UPDATE=true
 ZSH="$(antibody path robbyrussell/oh-my-zsh)"
 COMPLETION_WAITING_DOTS="true"
-plugins=(z git kubectl helm gcloud iterm2 fzf gcloud)
+plugins=(z git kubectl helm gcloud iterm2 fzf gcloud aws)
 
 #### load plugins
 source <(antibody init)
@@ -16,6 +16,8 @@ antibody bundle < $TERMINAL_DIR/plugins.txt
 
 #### set paths / os specific settings
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
+    source $TERMINAL_DIR/aliases-mac.sh
 
     # homebrew sbin
     PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
@@ -33,11 +35,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
-    PATH="$PATH:/snap/bin"
-    
+    source $TERMINAL_DIR/aliases-linux.sh
+    PATH="$PATH:$TERMINAL_DIR/imgs"
+
+
+    # PATH="$PATH:/snap/bin"
+    # PATH="$PATH:$HOME/.local/bin/"
+    # PATH="$PATH:$HOME/.cargo/bin/"
+
     export GIT_ASKPASS=`which ksshaskpass`
 
-fi 
+fi
 
 #### load terminal custom configs
 source $TERMINAL_DIR/history.sh

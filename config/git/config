@@ -1,9 +1,9 @@
 [user]
-	email = neel@rdkr.uk
 	name = Neel Radhakrishnan
+	email = neel@rdkr.uk
 [core]
 	editor = code --wait
-	excludesfile = ~/.terminal/config/git/gitignore
+	excludesfile = ~/code/terminal/config/git/gitignore
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
@@ -12,3 +12,6 @@
   abbreviateCommands
 #[credential]
 #	helper = osxkeychain
+
+[includeIf "gitdir:~/code/engie/"]
+	path = ~/code/rdkr/terminal/config/git/config-engie

@@ -22,3 +22,14 @@
 #         mesosphere/aws-cli \
 #         "$@"
 # }
+
+# aws(){
+# 	docker run -it --rm \
+# 		-v "${HOME}/.aws:/root/.aws" \
+#         -v "$(pwd):/project" \
+# 		--log-driver none \
+# 		--name aws \
+# 		${DOCKER_REPO_PREFIX}/awscli "$@"
+# }
+
+# complete -C $(which aws_completer) aws

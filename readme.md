@@ -1,5 +1,14 @@
 # terminal
 
+## arch
+
+```
+yay antibody zsh fzf lsd bat
+echo "export TERMINAL_DIR=~/code/terminal" > ~/.zshrc
+echo "source $TERMINAL_DIR/main.sh" >> ~/.zshrc
+chsh -s $(which zsh)
+```
+
 ## ubuntu
 
 ```

@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+mkdir -p $HOME/.cache/pre-commit
+docker run \
+    --user $(id -u):$(id -g) \
+    $([[ -t 1 ]] && echo -it) \
+    --rm \
+    -v "$HOME/.cache/pre-commit:/cache/pre-commit" \
+    -v "$(pwd):/project" \
+    -e XDG_CACHE_HOME=/cache \
+    --log-driver none \
+    --name pre-commit \
+    pre-commit "$@"
