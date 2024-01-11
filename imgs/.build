@@ -1,4 +1,2 @@
 #!/bin/zsh
-podman build -f $TERMINAL_DIR/containerfiles/cdk -t cdk
-podman build -f $TERMINAL_DIR/containerfiles/sam -t sam
-podman build -f $TERMINAL_DIR/containerfiles/pre-commit -t pre-commit
+$CONTAINER_TOOL build -f $TERMINAL_DIR/containerfiles/notebook -t notebook $TERMINAL_DIR/containerfiles

@@ -6,6 +6,13 @@ export XDG_CONFIG_HOME="$TERMINAL_DIR/config"
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 
+##############################################################################
+# path
+##############################################################################
+
+# local path
+PATH="$HOME/.local/bin:$PATH"
+
 # go path
 GOPATH="$HOME/go"
 PATH="${GOPATH//://bin:}/bin:$PATH"
@@ -21,6 +28,9 @@ PATH="$HOME/.tfenv/bin:$PATH"
 
 # krew path
 PATH="$HOME/.krew/bin:$PATH"
+
+# jetbrains path
+PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
 ##############################################################################
 # zsh config

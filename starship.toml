@@ -9,7 +9,7 @@ disabled = false
 min_time = 500
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [aws]
 format = "(on [$symbol$profile]($style) )"

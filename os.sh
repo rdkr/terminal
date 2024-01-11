@@ -16,8 +16,6 @@ if [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
     antibody bundle < $TERMINAL_DIR/antibody_plugins.txt > $TERMINAL_DIR/antibody_plugins.sh
   }
 
-  export PATH="$HOME/.local/bin:$PATH"
-
 else
 
   export CONTAINER_TOOL=podman
