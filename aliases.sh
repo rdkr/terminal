@@ -1,21 +1,10 @@
-alias gcat="$(which cat)"
-alias cat='bat'
-
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-
 alias reload='source ~/.zshrc'
 alias zshrc='code $TERMINAL_DIR'
 alias tf='terraform'
 
+alias kss='export SPACESHIP_KUBECTL_SHOW=true '
 alias kx='kubectx'
 alias kn='kubens'
-
-alias ka='kubectl --context=k8s-agent-asm'
-alias kd='kubectl --context=k8s-agent-dsm'
 
 alias myip="curl -s http://checkip.amazonaws.com/"
 

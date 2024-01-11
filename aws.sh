@@ -1,10 +1,4 @@
-function engie {
-  secret engie
-  podman run -it --rm  \
-    -e OKTA_PASSWORD=$OKTA_PASSWORD \
-    -v ~/.aws/credentials:/root/.aws/credentials \
-    -v ~/.okta_aws_login_config:/root/.okta_aws_login_config \
-    mdu42/gimme-aws-creds --profile ENGIE
-  unset OKTA_PASSWORD
-  export AWS_PROFILE=ENGIE
-}
+# prevent trying metadata service for auth
+export AWS_METADATA_SERVICE_NUM_ATTEMPTS=0
+
+alias ax='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | grep -v team- | fzf)'
