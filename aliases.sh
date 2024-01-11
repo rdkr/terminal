@@ -2,7 +2,6 @@ alias reload='source ~/.zshrc'
 alias zshrc='code $TERMINAL_DIR'
 alias tf='terraform'
 
-alias kss='export SPACESHIP_KUBECTL_SHOW=true '
 alias kx='kubectx'
 alias kn='kubens'
 

@@ -1,9 +1,12 @@
 if [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
 
   export CONTAINER_TOOL=docker
+  
   alias cat='batcat'
 
   export GIT_ASKPASS=/usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+
+  export PATH="$HOME/.local/bin:$PATH"
 
 else
 

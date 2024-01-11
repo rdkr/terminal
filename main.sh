@@ -9,7 +9,7 @@ source <(antibody init)
 antibody bundle < $TERMINAL_DIR/plugins.txt
 
 #### load local imgs
-PATH="$PATH:$TERMINAL_DIR/imgs"
+PATH="$TERMINAL_DIR/imgs:$PATH"
 
 #### set zsh config
 DISABLE_AUTO_UPDATE=true
@@ -24,9 +24,10 @@ source <(stern --completion=zsh)
 source $ZSH/oh-my-zsh.sh
 
 #### load terminal custom configs
-source $TERMINAL_DIR/aliases-linux.sh
 source $TERMINAL_DIR/history.sh
+source $TERMINAL_DIR/starship.sh
+source $TERMINAL_DIR/os.sh
 source $TERMINAL_DIR/aliases.sh
 source $TERMINAL_DIR/aws.sh
 source $TERMINAL_DIR/gcp.sh
-source $TERMINAL_DIR/spaceship.sh
+source $TERMINAL_DIR/five.sh
