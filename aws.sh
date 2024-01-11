@@ -1,3 +1,13 @@
+function engie {
+  eval $(op signin my)
+  docker run -it --rm  \
+    -e OKTA_PASSWORD=$(op get item 77ertfv67we4yrrhlz6soqwofm --fields password) \
+    -v ~/.aws/credentials:/root/.aws/credentials \
+    -v ~/.okta_aws_login_config:/root/.okta_aws_login_config \
+    mdu42/gimme-aws-creds --profile ENGIE
+  export AWS_PROFILE=ENGIE
+}
+
 # in ~/AWS.sh:
 # export AWS_ACCESS_KEY_ID=''
 # export AWS_SECRET_ACCESS_KEY=''

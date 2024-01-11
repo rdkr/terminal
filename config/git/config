@@ -13,5 +13,5 @@
 #[credential]
 #	helper = osxkeychain
 
-[includeIf "gitdir:~/code/engie/"]
+[includeIf "gitdir:~/code/windermere/"]
 	path = ~/code/rdkr/terminal/config/git/config-engie

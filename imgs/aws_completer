@@ -1,7 +1,6 @@
 #!/bin/zsh
 podman run \
-  --rm \
-  -i \
+  --rm -i \
   --entrypoint /usr/local/bin/aws_completer \
   -e COMP_LINE -e COMP_POINT \
   amazon/aws-cli $@
