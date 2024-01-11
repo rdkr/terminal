@@ -1,5 +1,5 @@
 .idea/*
-*/venv/*
+.vscode/*
 venv/*
 
 # Created by https://www.gitignore.io/api/go,rust,macos,python,intellij,visualstudiocode
