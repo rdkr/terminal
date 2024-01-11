@@ -62,3 +62,4 @@ to fix start menu: https://www.reddit.com/r/Kubuntu/comments/r9dx60/comment/hncq
 emulate sh -c 'source /etc/profile' into /etc/zsh/zprofile
 ```
 
+.
