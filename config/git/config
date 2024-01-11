@@ -1,12 +1,14 @@
-[user]
-	name = Neel Radhakrishnan
-	email = neel.radhakrishnan@five.ai
-
 [includeIf "gitdir:/home/neel/athena/"]
   path = /home/neel/athena/.gitconfig
 
+[includeIf "gitdir:/home/neel/five/"]
+  path = /home/neel/five/.gitconfig
+  
 [includeIf "gitdir:/home/neel/rdkr/"]
   path = /home/neel/rdkr/.gitconfig
+
+[user]
+	name = Neel Radhakrishnan
 
 [core]
 	excludesfile = /home/neel/rdkr/terminal/config/git/gitignore
