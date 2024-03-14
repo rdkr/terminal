@@ -1,6 +1,3 @@
-[includeIf "gitdir:/home/neel/athena/"]
-  path = /home/neel/athena/.gitconfig
-
 [includeIf "gitdir:/home/neel/five/"]
   path = /home/neel/five/.gitconfig
   
