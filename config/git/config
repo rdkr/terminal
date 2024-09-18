@@ -1,14 +1,17 @@
-[includeIf "gitdir:/home/neel/five/"]
-  path = /home/neel/five/.gitconfig
-  
-[includeIf "gitdir:/home/neel/rdkr/"]
-  path = /home/neel/rdkr/.gitconfig
+[includeIf "gitdir:~/five/"]
+  path = ~/five/.gitconfig
+
+[includeIf "gitdir:~/rdkr/"]
+  path = ~/rdkr/.gitconfig
+
+[includeIf "gitdir:~/ada/"]
+  path = ~/ada/.gitconfig
 
 [user]
 	name = Neel Radhakrishnan
 
 [core]
-	excludesfile = /home/neel/rdkr/terminal/config/git/gitignore
+	excludesfile = ~/rdkr/terminal/config/git/gitignore
 
 [diff]
     tool = meld
@@ -32,13 +35,13 @@
 	prompt = false
 
 [lfs]
-	storage = /home/neel/.lfs
+	storage = ~/.lfs
 
 [credential]
 	helper = cache --timeout=86400
 
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true

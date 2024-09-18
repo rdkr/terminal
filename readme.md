@@ -18,7 +18,7 @@ echo 'neel ALL=(ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo
 
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
-sudo apt install build-essential gnupg2 zsh fzf git curl
+sudo apt install build-essential gnupg2 zsh fzf git curl zsh
 
 echo 'export TERMINAL_DIR=~/rdkr/terminal' > ~/.zshrc
 echo 'source $TERMINAL_DIR/main.sh' >> ~/.zshrc
@@ -27,9 +27,6 @@ chsh -s $(which zsh)
 
 mkdir ~/rdkr
 git clone https://github.com/rdkr/terminal.git ~/rdkr/terminal
-
-sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
 git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 
@@ -50,6 +47,11 @@ cd /usr/share/doc/git/contrib/credential/libsecret
 sudo make
 cd -
 
+```
+
+```
+sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
 install stern

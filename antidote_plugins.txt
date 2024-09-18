@@ -1,4 +1,4 @@
-robbyrussell/oh-my-zsh
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
+robbyrussell/oh-my-zsh kind:defer
+zsh-users/zsh-completions kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-syntax-highlighting kind:defer

@@ -13,10 +13,12 @@ if [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
     sudo apt update && sudo apt upgrade && sudo apt autoremove
     sudo snap refresh
     antidote update
+    omz update
     cd ~/.pyenv && git pull
     cd ~/.tfenv && git pull
     cargo install starship --locked
     cargo install kubie --locked
+    cargo install --git https://github.com/astral-sh/rye rye --locked
     cd
   }
 

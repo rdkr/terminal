@@ -14,17 +14,18 @@ export GIT_CONFIG_GLOBAL=$TERMINAL_DIR/config/git/config
 PATH="$HOME/.local/bin:$PATH"
 
 # go
-GOPATH="$HOME/go"
-PATH="${GOPATH//://bin:}/bin:$PATH"
+# GOPATH="$HOME/go"
+# PATH="${GOPATH//://bin:}/bin:$PATH"
+PATH="$PATH:$HOME/go/bin"
 
 # rust
 PATH="$HOME/.cargo/bin:$PATH"
 
 # pyenv
-PYENV_ROOT="$HOME/.pyenv"
-PYENV_VIRTUALENV_DISABLE_PROMPT=1
-PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# PYENV_ROOT="$HOME/.pyenv"
+# PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
 
 # load local imgs
 PATH="$TERMINAL_DIR/imgs:$PATH"
@@ -43,6 +44,9 @@ PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 # includes
 ##############################################################################
 
+# rye
+source $HOME/.rye/env
+
 #### load terminal custom configs
 source $TERMINAL_DIR/antidote.sh
 source $TERMINAL_DIR/starship.sh
@@ -60,7 +64,13 @@ source $TERMINAL_DIR/five.sh
 DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS="true"
 ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-plugins=(z git fzf kubectl helm docker docker-compose pyenv)
+plugins=(z git fzf kubectl helm docker docker-compose)
 
 #### load omz
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+zstyle ':completion:*' menu yes select
 source $ZSH/oh-my-zsh.sh
