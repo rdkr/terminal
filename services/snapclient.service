@@ -1,0 +1,10 @@
+[Unit]
+Description=snapclient
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/snapclient
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

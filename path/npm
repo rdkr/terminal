@@ -1,8 +1,9 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+
 $CONTAINER_TOOL run \
   --rm \
   -it \
   -u $(id -u ${USER}):$(id -g ${USER})  \
   -w /app \
   -v "$(pwd):/app:rw" \
-  node:14-buster-slim npx $@
+  node npm $@

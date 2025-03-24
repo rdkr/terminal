@@ -1,6 +1,13 @@
 alias reload='source ~/.zshrc'
 alias rc='code $TERMINAL_DIR ~/.kube ~/.aws'
 
+alias cat='bat'
+# alias ls='lsd'
+# alias l='ls -l'
+# alias la='ls -a'
+# alias lla='ls -la'
+# alias lt='ls --tree'
+
 alias tf='terraform'
 
 alias kx='kubie ctx'

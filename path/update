@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+antidote_dir=~/.antidote
+source $antidote_dir/antidote.zsh
+antidote update
+
+cd ~/.tfenv && git pull
+
+if [[ "$(uname)" == "Darwin" ]]; then
+
+    brew update
+    brew upgrade
+
+elif [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
+
+    sudo apt update && sudo apt upgrade && sudo apt autoremove
+    sudo snap refresh
+
+    rustup update
+    cargo install starship --locked
+    cargo install kubie --locked
+    cargo install atuin --locked
+    cd
+
+else
+
+    # yay
+    # antibody bundle < $TERMINAL_DIR/antibody_plugins.txt > $TERMINAL_DIR/antibody_plugins.sh
+    # yay -Qe | cut -f 1 -d ' ' > $TERMINAL_DIR/pacman.txt
+    # pacman -Qtdq | sudo pacman -Rns -
+
+fi

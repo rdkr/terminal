@@ -1,2 +1,3 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+
 $CONTAINER_TOOL build -f $TERMINAL_DIR/containerfiles/notebook -t notebook $TERMINAL_DIR/containerfiles

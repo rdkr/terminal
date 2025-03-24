@@ -2,3 +2,4 @@ robbyrussell/oh-my-zsh kind:defer
 zsh-users/zsh-completions kind:defer
 zsh-users/zsh-autosuggestions kind:defer
 zsh-users/zsh-syntax-highlighting kind:defer
+atuinsh/atuin kind:defer

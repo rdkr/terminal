@@ -5,6 +5,7 @@
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 export GIT_CONFIG_GLOBAL=$TERMINAL_DIR/config/git/config
+export ATUIN_CONFIG_DIR=$TERMINAL_DIR/config/atuin
 
 ##############################################################################
 # path
@@ -17,18 +18,18 @@ PATH="$HOME/.local/bin:$PATH"
 # GOPATH="$HOME/go"
 # PATH="${GOPATH//://bin:}/bin:$PATH"
 PATH="$PATH:$HOME/go/bin"
+PATH=$PATH:/usr/local/go/bin
 
 # rust
 PATH="$HOME/.cargo/bin:$PATH"
 
-# pyenv
-# PYENV_ROOT="$HOME/.pyenv"
-# PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
+# load local scripts
+PATH="$TERMINAL_DIR/path:$PATH"
 
-# load local imgs
-PATH="$TERMINAL_DIR/imgs:$PATH"
+# load local work scripts
+if [[ -d "$TERMINAL_DIR/path_work" ]]; then
+  PATH="$TERMINAL_DIR/path_work:$PATH"
+fi
 
 # tfenv path
 PATH="$HOME/.tfenv/bin:$PATH"
@@ -44,18 +45,24 @@ PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 # includes
 ##############################################################################
 
-# rye
-source $HOME/.rye/env
+#### load terminal configs
+source $TERMINAL_DIR/scripts/antidote.sh
+source $TERMINAL_DIR/scripts/history.sh
+source $TERMINAL_DIR/scripts/aliases.sh
+source $TERMINAL_DIR/scripts/aws.sh
 
-#### load terminal custom configs
-source $TERMINAL_DIR/antidote.sh
-source $TERMINAL_DIR/starship.sh
-source $TERMINAL_DIR/history.sh
-source $TERMINAL_DIR/os.sh
-source $TERMINAL_DIR/aliases.sh
-source $TERMINAL_DIR/aws.sh
-source $TERMINAL_DIR/gcp.sh
-source $TERMINAL_DIR/five.sh
+#### load work configs
+if [[ -f "$TERMINAL_DIR/scripts/work.sh" ]]; then
+  source $TERMINAL_DIR/scripts/work.sh
+fi
+
+##############################################################################
+# terminal tools
+##############################################################################
+
+# load starship
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
 
 ##############################################################################
 # zsh config
@@ -64,7 +71,7 @@ source $TERMINAL_DIR/five.sh
 DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS="true"
 ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-plugins=(z git fzf kubectl helm docker docker-compose)
+plugins=(z git kubectl helm fluxcd docker docker-compose)
 
 #### load omz
 autoload -Uz compinit
