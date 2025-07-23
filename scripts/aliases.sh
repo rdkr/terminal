@@ -9,6 +9,9 @@ alias cat='bat'
 # alias lt='ls --tree'
 
 alias tf='terraform'
+alias tfa='terraform apply'
+alias tfu='terraform force-unlock'
+
 
 alias kx='kubie ctx'
 alias kn='kubie ns'

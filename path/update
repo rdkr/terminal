@@ -10,6 +10,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     brew update
     brew upgrade
+    brew upgrade --cask --greedy
 
 elif [[ "$(awk -F= '/^NAME/{print $2}' /etc/os-release)" == '"Ubuntu"' ]]; then
 
