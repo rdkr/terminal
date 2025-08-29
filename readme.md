@@ -3,11 +3,8 @@
 ## all
 
 ```
-mkdir ~/rdkr
+mkdir ~/rdkr ~/.kube ~/.aws
 git clone https://github.com/rdkr/terminal.git ~/rdkr/terminal
-
-mkdir -p ~/.kube ~/.aws
-
 echo 'export TERMINAL_DIR=~/rdkr/terminal' >> ~/.zshrc
 echo 'source $TERMINAL_DIR/scripts/main.sh' >> ~/.zshrc
 ```
@@ -20,17 +17,42 @@ eval "$(/opt/homebrew/bin/brew shellenv)" >> ~/.zshrc
 
 ## arch
 
+### wsl
+
 ```
-yay antibody zsh fzf lsd bat
-echo "export TERMINAL_DIR=~/rdkr/terminal" > ~/.zshrc
-echo "source $TERMINAL_DIR/main.sh" >> ~/.zshrc
-chsh -s $(which zsh)
+wsl --install archlinux
+```
+
+```
+pacman -Syu
+
+useradd -m neel
+passwd neel
+
+echo "[user]" > /etc/wsl.conf
+echo "default=neel" >> /etc/wsl.conf
+
+pacman -S sudo
+echo "neel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/neel
+```
+
+```
+wsl --terminate archlinux
+```
+
+### arch
+
+```
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+yay -Y --gendb; yay -Syu --devel; yay -Y --devel --save
+yay -S zsh starship atuin lsd bat
+chsh -s /usr/bin/zsh
+yay -S wget kubectl sops
 ```
 
 ## ubuntu
 
 https://code.visualstudio.com/
-
 
 ```
 echo 'neel ALL=(ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo
@@ -65,8 +87,5 @@ to fix start menu: https://www.reddit.com/r/Kubuntu/comments/r9dx60/comment/hncq
 ```
 emulate sh -c 'source /etc/profile' into /etc/zsh/zprofile
 ```
-
-ALLL
-
 
 git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
