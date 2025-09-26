@@ -2,16 +2,26 @@ alias reload='source ~/.zshrc'
 alias rc='code $TERMINAL_DIR ~/.kube ~/.aws'
 
 alias cat='bat'
-# alias ls='lsd'
-# alias l='ls -l'
-# alias la='ls -a'
-# alias lla='ls -la'
-# alias lt='ls --tree'
 
-alias tf='terraform'
-alias tfa='terraform apply'
-alias tfu='terraform force-unlock'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias tf='terraform'
 
+elif [[ -f /etc/lsb-release ]] && grep -qi ubuntu /etc/lsb-release; then
+  alias tf='tofu'
+
+elif [[ -f /etc/arch-release ]]; then
+  alias tf='tofu'
+
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+
+fi
+
+alias tfa='tf apply'
+alias tfu='tf force-unlock'
 
 alias kx='kubie ctx'
 alias kn='kubie ns'

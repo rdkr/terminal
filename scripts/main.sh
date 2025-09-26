@@ -6,7 +6,15 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 export GIT_CONFIG_GLOBAL=$TERMINAL_DIR/config/git/config
 export ATUIN_CONFIG_DIR=$TERMINAL_DIR/config/atuin
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+  export TERMINAL_OS="macos"
+elif [[ -f /etc/arch-release ]]; then
+  export TERMINAL_OS="arch"
+else
+  echo "unknown os!"
+fi
 
 ##############################################################################
 # path
