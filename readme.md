@@ -3,7 +3,7 @@
 ## all
 
 ```
-mkdir ~/rdkr ~/.kube ~/.aws
+mkdir -p ~/rdkr ~/.kube ~/.aws
 git clone https://github.com/rdkr/terminal.git ~/rdkr/terminal
 echo 'export TERMINAL_DIR=~/rdkr/terminal' >> ~/.zshrc
 echo 'source $TERMINAL_DIR/scripts/main.sh' >> ~/.zshrc
@@ -42,9 +42,16 @@ wsl --terminate archlinux
 
 ### arch
 
+yay
+
 ```
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 yay -Y --gendb; yay -Syu --devel; yay -Y --devel --save
+```
+
+tools
+
+```
 yay -S zsh starship atuin lsd bat
 chsh -s /usr/bin/zsh
 yay -S wget kubectl sops
