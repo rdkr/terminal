@@ -46,37 +46,6 @@ function secret {
   eval $(op get item env-$1 --fields notes)
 }
 
-function notebook {
-
-  deactivate || true
-
-  if [[ -z "$1" ]]; then
-    notebook_path="$HOME/notebooks/misc"
-  else;
-    notebook_path="$HOME/notebooks/$1"
-  fi;
-
-  mkdir -p $notebook_path
-  cd $notebook_path
-
-  if [[ ! -d "venv" ]]; then
-    python3 -m venv venv
-    . venv/bin/activate
-    pip install jupyterlab
-  else;
-    . venv/bin/activate
-  fi;
-
-  pip freeze > requirements-auto-gen.txt
-  jupyter lab --no-browser
-}
-
-function notebooks-update {
-  cd /home/neel/five/notebooks
-  . venv/bin/activate
-  python -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 python -m pip install --upgrade
-}
-
 function kgetall {
   kubectl api-resources --verbs=list --namespaced -o name | grep -v events | xargs -n 1 kubectl get --show-kind --ignore-not-found -n $1 --no-headers | cut -d ' ' -f 1
 }
