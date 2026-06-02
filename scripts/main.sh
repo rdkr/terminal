@@ -73,8 +73,9 @@ fi
 
 DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS="true"
+
 ZSH="$(antidote path ohmyzsh/ohmyzsh)"
-plugins=(z git kubectl helm fluxcd docker docker-compose)
+plugins=(z git direnv kubectl helm fluxcd docker docker-compose)
 
 #### load omz
 autoload -Uz compinit

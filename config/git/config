@@ -1,3 +1,6 @@
+[includeIf "gitdir:~/brob/"]
+  path = ~/brob/.gitconfig
+
 [includeIf "gitdir:~/five/"]
   path = ~/five/.gitconfig
 
