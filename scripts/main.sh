@@ -12,6 +12,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export TERMINAL_OS="macos"
 elif [[ -f /etc/arch-release ]]; then
   export TERMINAL_OS="arch"
+elif [[ -f /etc/fedora-release ]]; then
+  export TERMINAL_OS="fedora"
 else
   echo "unknown os!"
 fi
@@ -26,8 +28,6 @@ export TENV_AUTO_INSTALL=true
 PATH="$HOME/.local/bin:$PATH"
 
 # go
-# GOPATH="$HOME/go"
-# PATH="${GOPATH//://bin:}/bin:$PATH"
 PATH="$PATH:$HOME/go/bin"
 PATH=$PATH:/usr/local/go/bin
 
@@ -49,7 +49,7 @@ PATH="$HOME/.tfenv/bin:$PATH"
 PATH="$HOME/.krew/bin:$PATH"
 
 # jetbrains path
-PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
+# PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
 
 ##############################################################################
@@ -68,20 +68,12 @@ if [[ -f "$TERMINAL_DIR/scripts/work.sh" ]]; then
 fi
 
 ##############################################################################
-# terminal tools
-##############################################################################
-
-# load starship
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
-
-##############################################################################
 # zsh config
 ##############################################################################
 
 DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS="true"
-ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+ZSH="$(antidote path ohmyzsh/ohmyzsh)"
 plugins=(z git kubectl helm fluxcd docker docker-compose)
 
 #### load omz
@@ -92,3 +84,16 @@ done
 compinit -C
 zstyle ':completion:*' menu yes select
 source $ZSH/oh-my-zsh.sh
+
+##############################################################################
+# prompt etc
+##############################################################################
+
+# # load starship
+# eval "$(starship init zsh)"
+# export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
+
+
+PS1='\$ '
+
+eval "$(atuin init zsh)"

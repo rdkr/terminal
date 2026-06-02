@@ -1,22 +1,25 @@
 alias reload='source ~/.zshrc'
 alias rc='code $TERMINAL_DIR ~/.kube ~/.aws'
 
-alias cat='bat'
+# alias cat='bat'
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
+
+if [[ "$TERMINAL_OS" == "macos" ]]; then
   alias tf='terraform'
 
-elif [[ -f /etc/lsb-release ]] && grep -qi ubuntu /etc/lsb-release; then
+elif [[ "$TERMINAL_OS" == "ubuntu" ]]; then
   alias tf='tofu'
 
-elif [[ -f /etc/arch-release ]]; then
+elif [[ "$TERMINAL_OS" == "fedora" ]]; then
   alias tf='tofu'
 
-  alias ls='lsd'
-  alias l='ls -l'
-  alias la='ls -a'
-  alias lla='ls -la'
-  alias lt='ls --tree'
+elif [[ "$TERMINAL_OS" == "arch" ]]; then
+  alias tf='tofu'
 
 fi
 

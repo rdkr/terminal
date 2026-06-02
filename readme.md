@@ -9,6 +9,15 @@ echo 'export TERMINAL_DIR=~/rdkr/terminal' >> ~/.zshrc
 echo 'source $TERMINAL_DIR/scripts/main.sh' >> ~/.zshrc
 ```
 
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+source "$HOME/.cargo/env"
+cargo install starship --locked
+cargo install kubie --locked
+
+sudo apt install protobuf-compiler
+cargo install atuin --locked
+```
 ## mac
 
 ```
@@ -57,6 +66,36 @@ chsh -s /usr/bin/zsh
 yay -S wget kubectl sops
 ```
 
+### fedora
+
+install fusion
+
+```
+sudo dnf install   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf swap ffmpeg-free ffmpeg --allowerasin
+
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
+```
+
+
+tools
+gcc for rust compiling
+
+```
+sudo dnf install zsh lsd
+chsh -s /usr/bin/zsh
+
+sudo dnf install gcc
+cargo install atuin --locked
+
+sudo dnf install openssl-devel
+cargo install cargo-update
+```
+
 ## ubuntu
 
 https://code.visualstudio.com/
@@ -70,20 +109,8 @@ sudo apt install build-essential gnupg2 zsh fzf git curl zsh git git-lfs bat
 
 chsh -s $(which zsh)
 
-sudo apt install cmake
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-source "$HOME/.cargo/env"
-cargo install starship --locked
-cargo install kubie --locked
-
-sudo apt install protobuf-compiler
-cargo install atuin --locked
+sudo apt install cmake # for rust
 ```
-
-
-ln -s /home/$USER/rdkr/terminal/services/snapclient.service ~/.config/systemd/user/snapclient.service
-systemctl --user enable snapclient
-systemctl --user start snapclient
 
 install stern
 
