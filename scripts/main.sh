@@ -91,10 +91,9 @@ source $ZSH/oh-my-zsh.sh
 ##############################################################################
 
 # # load starship
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
 
-
-PS1='\$ '
+# PS1='\$ '
 
 eval "$(atuin init zsh)"

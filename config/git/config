@@ -12,7 +12,6 @@
 
 [user]
 	name = Neel Radhakrishnan
-	email = neel@rdkr.uk
 
 [core]
 	excludesfile = ~/rdkr/terminal/config/git/gitignore

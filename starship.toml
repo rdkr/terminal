@@ -1,10 +1,20 @@
-format = "$time$all"
+format = "$all"
 add_newline = false
 
 [time]
-format = "[$time]($style) "
-style = "bold blue"
-disabled = false
+disabled = true
+
+[line_break]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[git_status]
+disabled = true
 
 [cmd_duration]
 min_time = 500
@@ -13,6 +23,7 @@ min_time = 500
 symbol = ''
 
 [python]
+disabled = true
 symbol = ''
 style = "bold green"
 
@@ -35,4 +46,4 @@ disabled = true
 
 [hostname]
 disabled = false
-ssh_only = false
+ssh_only = true
