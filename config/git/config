@@ -1,3 +1,6 @@
+[includeIf "gitdir:~/ada/"]
+  path = ~/ada/.gitconfig
+
 [includeIf "gitdir:~/brob/"]
   path = ~/brob/.gitconfig
 
@@ -6,9 +9,6 @@
 
 [includeIf "gitdir:~/rdkr/"]
   path = ~/rdkr/.gitconfig
-
-[includeIf "gitdir:~/ada/"]
-  path = ~/ada/.gitconfig
 
 [user]
 	name = Neel Radhakrishnan

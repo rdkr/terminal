@@ -12,11 +12,13 @@ echo 'source $TERMINAL_DIR/scripts/main.sh' >> ~/.zshrc
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 source "$HOME/.cargo/env"
+
 cargo install starship --locked
-cargo install kubie --locked
 
 sudo apt install protobuf-compiler
 cargo install atuin --locked
+
+cargo install kubie --locked
 ```
 ## mac
 

@@ -14,6 +14,8 @@ elif [[ -f /etc/arch-release ]]; then
   export TERMINAL_OS="arch"
 elif [[ -f /etc/fedora-release ]]; then
   export TERMINAL_OS="fedora"
+elif [[ -n "$(uname -a | grep Ubuntu)" ]]; then
+  export TERMINAL_OS="ubuntu"
 else
   echo "unknown os!"
 fi
