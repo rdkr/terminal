@@ -1,11 +1,5 @@
-[includeIf "gitdir:~/ada/"]
-  path = ~/ada/.gitconfig
-
-[includeIf "gitdir:~/brob/"]
-  path = ~/brob/.gitconfig
-
-[includeIf "gitdir:~/five/"]
-  path = ~/five/.gitconfig
+[includeIf "gitdir:~/rbadas/"]
+  path = ~/rbadas/.gitconfig
 
 [includeIf "gitdir:~/rdkr/"]
   path = ~/rdkr/.gitconfig
