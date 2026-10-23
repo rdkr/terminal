@@ -34,9 +34,6 @@ if [[ -d "$TERMINAL_DIR/path_work" ]]; then
   PATH="$TERMINAL_DIR/path_work:$PATH"
 fi
 
-# tfenv path
-PATH="$HOME/.tfenv/bin:$PATH"
-
 # krew path
 PATH="$HOME/.krew/bin:$PATH"
 
@@ -46,58 +43,51 @@ PATH="$HOME/.krew/bin:$PATH"
 # mise tools
 eval "$(mise activate zsh)"
 
-
 ##############################################################################
-# includes
+# zsh: plugins, completion, history
 ##############################################################################
 
-#### load terminal configs
+COMPLETION_WAITING_DOTS="true"
+
+# which machines get each plugin group (conditional: in antidote_plugins.txt)
+# one line per OS that gets the group; comment a line out to turn it off
+function k8s-plugins {
+  # [[ "$TERMINAL_OS" == "macos" ]] && return 0
+  return 1
+}
+
+function direnv-plugins {
+  # [[ "$TERMINAL_OS" == "macos" ]] && return 0
+  return 1
+}
+
 source $TERMINAL_DIR/scripts/antidote.sh
+
+zstyle ':completion:*' menu yes select
+
 source $TERMINAL_DIR/scripts/history.sh
+
+##############################################################################
+# aliases
+##############################################################################
+
 source $TERMINAL_DIR/scripts/aliases.sh
 source $TERMINAL_DIR/scripts/aws.sh
 
-#### load work configs
+##############################################################################
+# work
+##############################################################################
+
 if [[ -f "$TERMINAL_DIR/scripts/work.sh" ]]; then
   source $TERMINAL_DIR/scripts/work.sh
 fi
 
 ##############################################################################
-# zsh config
-##############################################################################
-
-DISABLE_AUTO_UPDATE=true
-COMPLETION_WAITING_DOTS="true"
-
-ZSH="$(antidote path ohmyzsh/ohmyzsh)"
-
-plugins=(z git docker docker-compose)
-
-if [[ "$TERMINAL_OS" == "macos" ]]; then
-  plugins+=(direnv kubectl helm fluxcd)
-
-elif [[ "$TERMINAL_OS" == "fedora" ]]; then
-  # plugins+=(direnv kubectl helm fluxcd)
-
-fi
-
-#### load omz
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
-zstyle ':completion:*' menu yes select
-source $ZSH/oh-my-zsh.sh
-
-##############################################################################
-# prompt etc
+# prompt
 ##############################################################################
 
 # # load starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$TERMINAL_DIR/starship.toml"
-
-# PS1='\$ '
 
 eval "$(atuin init zsh)"
