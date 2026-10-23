@@ -1,4 +1,5 @@
 add_newline = false
+format = '${custom.user}$all'
 
 [time]
 disabled = true
@@ -47,8 +48,15 @@ disabled = false
 disabled = true
 
 [username]
-format = '([$user]($style) in )'
-aliases = { "neel" = "" }
+disabled = true
+
+# show the user unless it owns this checkout (i.e. it's me); checked per prompt so `su` works
+[custom.user]
+command = 'test -O "$TERMINAL_DIR" || id -un'
+when = true
+shell = ['sh']
+format = '([$output]($style) in )'
+style = 'bold yellow'
 
 [hostname]
 disabled = false
