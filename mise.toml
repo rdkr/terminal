@@ -1,8 +1,8 @@
 [tools]
 starship = "latest"
 atuin = { version = "latest", libc = "musl" }   # glibc build needs glibc 2.38+, RHEL 9 has 2.34
-fzf = "latest"
 
+fzf = { version = "latest", lazy = true }
 direnv = { version = "latest", lazy = true }
 sops = { version = "latest", lazy = true }
 "aqua:tofuutils/tenv" = { version = "latest", lazy = true, lazy_bins = ["tenv", "tf", "tofu", "terraform"] }
