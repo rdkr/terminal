@@ -1,0 +1,57 @@
+# Builds a fresh machine of one distro and runs the readme install on it.
+# The build fails if any step fails.
+#
+#   BASE  base image, e.g. debian:stable
+#   rhel: tester has no sudo, packages are preinstalled by "the admin"
+#   others: tester has passwordless sudo
+
+ARG BASE=fedora:latest
+FROM ${BASE}
+
+
+### make the image look like a real install of the distro
+
+COPY scripts/os.sh /tmp/os.sh
+
+RUN . /tmp/os.sh && \
+    if [ "$TERMINAL_OS" = debian ] || [ "$TERMINAL_OS" = ubuntu ]; then \
+      apt-get update && apt-get install -y sudo wget ca-certificates; \
+    fi
+
+RUN useradd -m tester
+
+RUN . /tmp/os.sh && \
+    if [ "$TERMINAL_OS" = rhel ]; then \
+      dnf install -y zsh git git-lfs; \
+    else \
+      echo 'tester ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/tester; \
+    fi
+
+USER tester
+WORKDIR /home/tester
+
+### put this working copy where the install clones to
+
+# mise reuses an existing checkout instead of cloning, if its origin url matches
+COPY --chown=tester . rdkr/terminal
+RUN sed -i 's#url = .*#url = https://github.com/rdkr/terminal.git#' rdkr/terminal/.git/config
+
+### the readme install (--skip user: changing the login shell needs a password)
+
+RUN (curl -fsSL https://mise.run || wget -qO- https://mise.run) | sh
+RUN ~/.local/bin/mise bootstrap --yes --skip user --from https://github.com/rdkr/terminal.git --from-dir ~/rdkr/terminal
+
+# running it again must also work
+RUN ~/.local/bin/mise bootstrap --yes --skip user --from https://github.com/rdkr/terminal.git --from-dir ~/rdkr/terminal
+
+
+### checks
+
+# core tools run
+RUN zsh -i -c 'starship --version && atuin --version && fzf --version'
+
+# shell starts without errors
+RUN zsh -i -c exit > startup.log 2>&1; cat startup.log; ! grep -qiE 'error|not found|unknown os' startup.log
+
+# update runs (yes answers the apt/dnf prompts)
+RUN zsh -i -c 'yes | update'

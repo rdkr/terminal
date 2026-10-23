@@ -4,8 +4,21 @@ antidote_dir=~/.antidote
 source $antidote_dir/antidote.zsh
 antidote update
 
-rustup update
-cargo install-update --all
+mise self-update -y
+
+if [[ "$TERMINAL_OS" == "rhel" ]]; then
+    mise bootstrap --upgrade --yes --skip user,packages
+else
+    mise bootstrap --upgrade --yes --skip user
+fi
+
+if (( $+commands[rustup] )); then
+    rustup update
+fi
+
+if (( $+commands[cargo-install-update] )); then
+    cargo install-update --all
+fi
 
 if [[ "$TERMINAL_OS" == "macos" ]]; then
     brew update
@@ -13,6 +26,9 @@ if [[ "$TERMINAL_OS" == "macos" ]]; then
     brew upgrade --cask --greedy
 
 elif [[ "$TERMINAL_OS" == "ubuntu" ]]; then
+    sudo apt update && sudo apt upgrade && sudo apt autoremove
+
+elif [[ "$TERMINAL_OS" == "debian" ]]; then
     sudo apt update && sudo apt upgrade && sudo apt autoremove
 
 elif [[ "$TERMINAL_OS" == "fedora" ]]; then

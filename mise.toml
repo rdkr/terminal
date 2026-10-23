@@ -1,0 +1,36 @@
+[tools]
+starship = "latest"
+atuin = { version = "latest", libc = "musl" }   # glibc build needs glibc 2.38+, RHEL 9 has 2.34
+fzf = "latest"
+
+direnv = { version = "latest", lazy = true }
+sops = { version = "latest", lazy = true }
+"aqua:tofuutils/tenv" = { version = "latest", lazy = true, lazy_bins = ["tenv", "tf", "tofu", "terraform"] }
+
+kubectl = { version = "latest", lazy = true }
+helm = { version = "latest", lazy = true }
+flux2 = { version = "latest", lazy = true }
+kubie = { version = "latest", lazy = true }
+stern = { version = "latest", lazy = true }
+krew = { version = "latest", lazy = true }
+
+[bootstrap.packages]
+"apt:zsh" = "latest"
+"apt:git" = "latest"
+"apt:git-lfs" = "latest"
+"dnf:zsh" = "latest"
+"dnf:git" = "latest"
+"dnf:git-lfs" = "latest"
+"pacman:zsh" = "latest"
+"pacman:git" = "latest"
+"pacman:git-lfs" = "latest"
+"brew:git-lfs" = { os = "macos" }
+
+[bootstrap.user]
+login_shell = "zsh"
+
+[dotfiles]
+"~/.zshrc/terminal" = { block = '''
+export TERMINAL_DIR="$HOME/rdkr/terminal"
+source "$TERMINAL_DIR/scripts/main.sh"
+''' }

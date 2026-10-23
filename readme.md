@@ -4,26 +4,24 @@
 
 ```
 mkdir -p ~/rdkr ~/.kube ~/.aws
-git clone https://github.com/rdkr/terminal.git ~/rdkr/terminal
-echo 'export TERMINAL_DIR=~/rdkr/terminal' >> ~/.zshrc
-echo 'source $TERMINAL_DIR/scripts/main.sh' >> ~/.zshrc
+(curl -fsSL https://mise.run || wget -qO- https://mise.run) | sh
+~/.local/bin/mise bootstrap --yes --from https://github.com/rdkr/terminal.git --from-dir ~/rdkr/terminal
 ```
 
+## mise migration
+
 ```
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-source "$HOME/.cargo/env"
-
-cargo install starship --locked
-
-sudo apt install protobuf-compiler
-cargo install atuin --locked
-
-cargo install kubie --locked
+cargo uninstall atuin kubie starship cargo-update
 ```
+
+and remove the old `TERMINAL_DIR` / `source main.sh` lines from `~/.zshrc`.
+
+Test on each distro: `test/run.sh` (uses `$CONTAINER_TOOL`, default `podman`).
+
 ## mac
 
 ```
-eval "$(/opt/homebrew/bin/brew shellenv)" >> ~/.zshrc
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 ```
 
 ## arch
@@ -60,14 +58,6 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 yay -Y --gendb; yay -Syu --devel; yay -Y --devel --save
 ```
 
-tools
-
-```
-yay -S zsh starship atuin lsd bat
-chsh -s /usr/bin/zsh
-yay -S wget kubectl sops
-```
-
 ### fedora
 
 install fusion
@@ -84,20 +74,6 @@ sudo systemctl start sshd
 ```
 
 
-tools
-gcc for rust compiling
-
-```
-sudo dnf install zsh lsd
-chsh -s /usr/bin/zsh
-
-sudo dnf install gcc
-cargo install atuin --locked
-
-sudo dnf install openssl-devel
-cargo install cargo-update
-```
-
 ## ubuntu
 
 https://code.visualstudio.com/
@@ -107,14 +83,8 @@ echo 'neel ALL=(ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo
 
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
-sudo apt install build-essential gnupg2 zsh fzf git curl zsh git git-lfs bat
-
-chsh -s $(which zsh)
-
-sudo apt install cmake # for rust
+sudo apt install gnupg2
 ```
-
-install stern
 
 ### kde
 
@@ -123,5 +93,3 @@ to fix start menu: https://www.reddit.com/r/Kubuntu/comments/r9dx60/comment/hncq
 ```
 emulate sh -c 'source /etc/profile' into /etc/zsh/zprofile
 ```
-
-git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv

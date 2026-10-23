@@ -1,28 +1,6 @@
 alias reload='source ~/.zshrc'
 alias rc='code $TERMINAL_DIR ~/.kube ~/.aws'
 
-# alias cat='bat'
-
-alias ls='lsd'
-alias l='lsd -l'
-alias la='lsd -a'
-alias lla='lsd -la'
-alias lt='lsd --tree'
-
-if [[ "$TERMINAL_OS" == "macos" ]]; then
-  alias tf='terraform'
-
-elif [[ "$TERMINAL_OS" == "ubuntu" ]]; then
-  alias tf='tofu'
-
-elif [[ "$TERMINAL_OS" == "fedora" ]]; then
-  alias tf='tofu'
-
-elif [[ "$TERMINAL_OS" == "arch" ]]; then
-  alias tf='tofu'
-
-fi
-
 alias tfa='tf apply'
 alias tfu='tf force-unlock'
 

@@ -6,19 +6,9 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 export GIT_CONFIG_GLOBAL=$TERMINAL_DIR/config/git/config
 export ATUIN_CONFIG_DIR=$TERMINAL_DIR/config/atuin
+export MISE_GLOBAL_CONFIG_FILE=$TERMINAL_DIR/mise.toml
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-  export TERMINAL_OS="macos"
-elif [[ -f /etc/arch-release ]]; then
-  export TERMINAL_OS="arch"
-elif [[ -f /etc/fedora-release ]]; then
-  export TERMINAL_OS="fedora"
-elif [[ -n "$(uname -a | grep Ubuntu)" ]]; then
-  export TERMINAL_OS="ubuntu"
-else
-  echo "unknown os!"
-fi
+source $TERMINAL_DIR/scripts/os.sh
 
 export TENV_AUTO_INSTALL=true
 
@@ -53,6 +43,9 @@ PATH="$HOME/.krew/bin:$PATH"
 # jetbrains path
 # PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
+# mise tools
+eval "$(mise activate zsh)"
+
 
 ##############################################################################
 # includes
@@ -77,7 +70,16 @@ DISABLE_AUTO_UPDATE=true
 COMPLETION_WAITING_DOTS="true"
 
 ZSH="$(antidote path ohmyzsh/ohmyzsh)"
-plugins=(z git direnv kubectl helm fluxcd docker docker-compose)
+
+plugins=(z git docker docker-compose)
+
+if [[ "$TERMINAL_OS" == "macos" ]]; then
+  plugins+=(direnv kubectl helm fluxcd)
+
+elif [[ "$TERMINAL_OS" == "fedora" ]]; then
+  # plugins+=(direnv kubectl helm fluxcd)
+
+fi
 
 #### load omz
 autoload -Uz compinit
