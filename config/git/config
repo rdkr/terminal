@@ -1,3 +1,7 @@
+# machine-local settings first (e.g. gh credential helpers); everything below overrides them
+[include]
+  path = ~/.gitconfig
+
 [includeIf "gitdir:~/rbadas/"]
   path = ~/rbadas/.gitconfig
 
