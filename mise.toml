@@ -1,3 +1,6 @@
+[settings]
+use_versions_host = false   # github only, no mise-versions.jdx.dev
+
 [tools]
 starship = "latest"
 atuin = { version = "latest", libc = "musl" }   # glibc build needs glibc 2.38+, RHEL 9 has 2.34
