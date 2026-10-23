@@ -46,6 +46,10 @@ disabled = false
 [container]
 disabled = true
 
+[username]
+format = '([$user]($style) in )'
+aliases = { "neel" = "" }
+
 [hostname]
 disabled = false
 ssh_only = true
