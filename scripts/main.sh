@@ -10,6 +10,14 @@ export MISE_GLOBAL_CONFIG_FILE=$TERMINAL_DIR/mise.toml
 
 source $TERMINAL_DIR/scripts/os.sh
 
+# 1Password SSH agent. ~/.ssh/config covers ssh itself; this covers tools with their own SSH client
+# (e.g. tofu providers). Skipped over SSH so a forwarded agent isn't replaced.
+if [[ -z $SSH_CONNECTION ]]; then
+  for sock in ~/.1password/agent.sock ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock; do
+    [[ -S $sock ]] && export SSH_AUTH_SOCK=$sock && break
+  done
+fi
+
 export TENV_AUTO_INSTALL=true
 
 ##############################################################################
