@@ -18,6 +18,12 @@ if [[ -z $SSH_CONNECTION ]]; then
   done
 fi
 
+# The age key for sops, read from 1Password on each decrypt instead of kept on disk.
+export SOPS_AGE_KEY_CMD="op read op://hvmiilow5dm7d3budfrvxdtur4/h5i2kdbvhbo7cuvdfkehtqmhni/password"
+# Over SSH, the app's unlock prompt would appear on this machine's screen.
+# Sign in in the terminal instead: eval "$(op signin)".
+[[ -n $SSH_CONNECTION ]] && export OP_BIOMETRIC_UNLOCK_ENABLED=false
+
 export TENV_AUTO_INSTALL=true
 
 ##############################################################################
