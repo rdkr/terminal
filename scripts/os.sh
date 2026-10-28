@@ -10,6 +10,8 @@ elif grep -q '^ID=ubuntu' /etc/os-release 2>/dev/null; then
   export TERMINAL_OS="ubuntu"
 elif [ -f /etc/debian_version ]; then
   export TERMINAL_OS="debian"
+elif [ -f /etc/NIXOS ]; then
+  export TERMINAL_OS="nixos"
 else
   echo "unknown os!"
 fi
