@@ -8,6 +8,27 @@ mkdir -p ~/rdkr ~/.kube ~/.aws
 ~/.local/bin/mise bootstrap --yes --from https://github.com/rdkr/terminal.git --from-dir ~/rdkr/terminal
 ```
 
+## nixos
+
+nixpkgs ships a mise too old for `mise bootstrap` (26.05 has 2026.5.12, which predates the
+subcommand), and NixOS owns the login shell and system packages, so the bootstrap's `login_shell`
+and `[bootstrap.packages]` steps would not apply anyway. Do the equivalent by hand:
+
+```
+mkdir -p ~/rdkr
+git clone https://github.com/rdkr/terminal.git ~/rdkr/terminal
+cat >> ~/.zshrc <<'EOF'
+# >>> mise:terminal >>>
+export TERMINAL_DIR="$HOME/rdkr/terminal"
+source "$TERMINAL_DIR/scripts/main.sh"
+# <<< mise:terminal <<<
+EOF
+cd ~/rdkr/terminal && mise trust && mise install
+```
+
+The host provides `zsh`, `git` and `mise`; `nix-ld` lets the glibc binaries mise installs
+(starship, kubectl, helm, …) run. `mise trust` is needed once per checkout.
+
 ## mise migration
 
 ```
